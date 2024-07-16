@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/src/layer/tile_layer/tile.dart';
 
-typedef TileBuilder = Widget Function(
-    BuildContext context, Widget tileWidget, Tile tile);
+typedef TileBuilder = Widget Function(BuildContext context, Widget tileWidget, Tile tile);
 
-typedef TilesContainerBuilder = Widget Function(
-    BuildContext context, Widget tilesContainer, List<Tile> tiles);
+typedef TilesContainerBuilder = Widget Function(BuildContext context, Widget tilesContainer, List<Tile> tiles);
 
 /// Applies inversion color matrix on Tiles container which may simulate Dark mode.
 Widget darkModeTilesContainerBuilder(
@@ -81,8 +79,7 @@ Widget coordinateDebugTileBuilder(
   Tile tile,
 ) {
   final coords = tile.coords;
-  final readableKey =
-      '${coords.x.floor()} : ${coords.y.floor()} : ${coords.z.floor()}';
+  final readableKey = '${coords.x.floor()} : ${coords.y.floor()} : ${coords.z.floor()}';
 
   return Container(
     decoration: BoxDecoration(
@@ -95,7 +92,7 @@ Widget coordinateDebugTileBuilder(
         Center(
           child: Text(
             readableKey,
-            style: Theme.of(context).textTheme.headline5,
+            style: Theme.of(context).textTheme.headlineSmall,
           ),
         ),
       ],
@@ -112,9 +109,7 @@ Widget loadingTimeDebugTileBuilder(
   final loadStarted = tile.loadStarted;
   final loaded = tile.loaded;
 
-  final time = loaded == null
-      ? 'Loading'
-      : '${(loaded.millisecond - loadStarted.millisecond).abs()} ms';
+  final time = loaded == null ? 'Loading' : '${(loaded.millisecond - loadStarted.millisecond).abs()} ms';
 
   return Container(
     decoration: BoxDecoration(
@@ -127,7 +122,7 @@ Widget loadingTimeDebugTileBuilder(
         Center(
           child: Text(
             time,
-            style: Theme.of(context).textTheme.headline5,
+            style: Theme.of(context).textTheme.headlineSmall,
           ),
         ),
       ],
